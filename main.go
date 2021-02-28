@@ -27,7 +27,7 @@ func main() {
 	deliveryChan := make(chan kafka.Event)
 
 	for i := 0; i < 10; i++ {
-		value := fmt.Sprintf("This is from Go[%d]!", i+1)
+		value := fmt.Sprintf("This is from New from Go[%d]!", i+1)
 		err = p.Produce(&kafka.Message{TopicPartition: kafka.TopicPartition{Topic: &topic, Partition: kafka.PartitionAny}, Value: []byte(value)}, deliveryChan)
 		e := <-deliveryChan
 		m := e.(*kafka.Message)
