@@ -17,7 +17,7 @@ func main() {
 		"group.id":             os.Getenv("CLOUDKARAFKA_GROUPID"),
 		"default.topic.config": kafka.ConfigMap{"auto.offset.reset": "earliest"},
 	}
-	topic := os.Getenv("CLOUDKARAFKA_TOPIC_PREFIX") + ".test"
+	topic := os.Getenv("CLOUDKARAFKA_TOPIC_PREFIX") + "test"
 	p, err := kafka.NewProducer(config)
 	if err != nil {
 		fmt.Printf("Failed to create producer: %s\n", err)
